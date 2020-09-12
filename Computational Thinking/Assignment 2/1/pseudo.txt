@@ -1,0 +1,3 @@
+
+ASK user for NUMBERS
+PRINT NUMBERS[0] + NUMBERS[1]

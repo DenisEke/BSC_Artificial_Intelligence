@@ -1,0 +1,13 @@
+ASK for password LENGTH
+
+PASSWORD = generatePassword(LENGTH)
+
+PRINT PASSWORD
+
+procedure generatePassword(LENGTH)
+    PASSWORD = empty string
+
+    loop i smaller LENGTH
+        PASSWORD += RANDOM_CHARACTER()
+
+    return PASSWORD
