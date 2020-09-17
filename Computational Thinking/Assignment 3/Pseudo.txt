@@ -1,0 +1,9 @@
+ask user for NUMBER_OF_FRIENDS
+
+IF NUMBER_OF_FRIENDS <= 6
+    ask for FRIENDS_NAMES
+    loop FRIENDS_NAMES
+        print(FRIEND_NAME has been invited)
+
+ELSE
+    print(not corona proven)
