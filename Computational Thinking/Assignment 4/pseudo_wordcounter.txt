@@ -1,0 +1,4 @@
+get INPUT from user
+get WORDS from INPUT
+get AMOUNT of WORDS
+print AMOUNT
