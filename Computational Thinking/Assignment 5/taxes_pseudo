@@ -1,0 +1,3 @@
+ask user for his SALARY
+set TAXRATE based on SALARY
+calculate INCOME based on TAXRATE and SALARY (INCOME = (1-TAXRATE)*SALARY)
