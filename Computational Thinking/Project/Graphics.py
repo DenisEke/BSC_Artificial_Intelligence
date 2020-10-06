@@ -1,3 +1,5 @@
+# NOTE: it was wrong to call the graphics state. But we did not want to change it that late in development
+
 # Source: https://stackoverflow.com/a/287944
 # Wanted to find a way to add color to print statements.
 class PrintColors:
@@ -7,6 +9,7 @@ class PrintColors:
     ENDC = '\033[0m'
 
 
+# How the hangman looks when he is dead
 STATE_DEAD = PrintColors.FAIL \
              + "__________  \n" \
              + "|        |  \n" \
@@ -16,6 +19,7 @@ STATE_DEAD = PrintColors.FAIL \
              + "|___________\n" \
              + PrintColors.ENDC
 
+#how the hangman looks when he won
 STATE_WON = PrintColors.OKGREEN \
             + "__________  \n" \
             + "|        |   \n" \
@@ -25,6 +29,7 @@ STATE_WON = PrintColors.OKGREEN \
             + "|_______/_\  \n" \
             + PrintColors.ENDC
 
+#how the hangman looks throughout the game.
 STATES = [
     # State 0
     "__________  \n" +
