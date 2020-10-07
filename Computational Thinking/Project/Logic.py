@@ -36,6 +36,11 @@ class Game:
     # constructor
     # secret_word is word the user should guess
     def __init__(self, secret_word):
+
+        # reset those always on init because somehow they got stored beetween multiple games
+        self.guesses = []
+        self.wrong_guesses = 0
+
         self.secret_word = secret_word
 
     # This function handles the users input
@@ -75,7 +80,7 @@ class Game:
                 self.state = GameState.LOST
                 return
 
-    #checks whether the user has lost
+    # checks whether the user has lost
     def hasLost(self):
 
         # if the user has more wrong guesses than we have graphics for the hangman he has lost
@@ -84,17 +89,17 @@ class Game:
 
         return False
 
-    #checks whether user has won
+    # checks whether user has won
     def hasWon(self):
 
-        #if every char of the secret word is in the guesses the user has won
+        # if every char of the secret word is in the guesses the user has won
         for char in self.secret_word:
             if char not in self.guesses:
                 return False
 
         return True
 
-    #give user his word with dashes for not guessed letters
+    # give user his word with dashes for not guessed letters
     def getHint(self):
 
         # start with an empty string
@@ -113,17 +118,45 @@ class Game:
 
         return hint
 
-    #get the current hangman graphic
+    # get the current hangman graphic
     def getHangman(self):
-        #returns the hangman graphic based on the current wrong guesses
+        # returns the hangman graphic based on the current wrong guesses
         return STATES[self.wrong_guesses]
 
 
-#our extraordinary wordlist the secret word gets chosen from
-WORDLIST = ["Pizza", "Burger", "Taco", "Buritto"]
+# our extraordinary wordlist the secret word gets chosen from
+# SOURCE: https://www.hangmanwords.com/words HARD HANGMAN WORDS
+WORDLIST = [
+    "abruptly", "absurd", "abyss", "affix", "askew", "avenue", "awkward", "axiom",
+    "azure", "bagpipes", "bandwagon", "banjo", "bayou", "beekeeper", "bikini",
+    "blitz", "blizzard", "boggle", "bookworm", "boxcar", "boxful", "buckaroo",
+    "buffalo", "buffoon", "buxom", "buzzard", "buzzing", "buzzwords", "caliph",
+    "cobweb", "cockiness", "croquet", "crypt", "curacao", "cycle", "daiquiri",
+    "dirndl", "disavow", "dizzying", "duplex", "dwarves", "embezzle", "equip",
+    "espionage", "euouae", "exodus", "faking", "fishhook", "fixable", "fjord", "flapjack",
+    "flopping", "fluffiness", "flyby", "foxglove", "frazzled", "frizzled", "fuchsia",
+    "funny", "gabby", "galaxy", "galvanize", "gazebo", "giaour", "gizmo", "glowworm", "glyph",
+    "gnarly", "gnostic", "gossip", "grogginess", "haiku", "haphazard", "hyphen", "iatrogenic",
+    "icebox", "injury", "ivory", "ivy", "jackpot", "jaundice", "jawbreaker", "jaywalk", "jazziest",
+    "jazzy", "jelly", "jigsaw", "jinx", "jiujitsu", "jockey", "jogging", "joking", "jovial", "joyful",
+    "juicy", "jukebox", "jumbo", "kayak", "kazoo", "keyhole", "khaki", "kilobyte", "kiosk", "kitsch",
+    "kiwifruit", "klutz", "knapsack", "larynx", "lengths", "lucky", "luxury", "lymph", "marquis",
+    "matrix", "megahertz", "microwave", "mnemonic", "mystify", "naphtha", "nightclub", "nowadays",
+    "numbskull", "nymph", "onyx", "ovary", "oxidize", "oxygen", "pajama", "peekaboo", "phlegm",
+    "pixel", "pizazz", "pneumonia", "polka", "pshaw", "psyche", "puppy", "puzzling", "quartz",
+    "queue", "quips", "quixotic", "quiz", "quizzes", "quorum", "razzmatazz", "rhubarb", "rhythm",
+    "rickshaw", "schnapps", "scratch", "shiv", "snazzy", "sphinx", "spritz", "squawk", "staff",
+    "strength", "strengths", "stretch", "stronghold", "stymied", "subway", "swivel", "syndrome",
+    "thriftless", "thumbscrew", "topaz", "transcript", "transgress", "transplant", "triphthong",
+    "twelfth", "twelfths", "unknown", "unworthy", "unzip", "uptown", "vaporize", "vixen", "vodka",
+    "voodoo", "vortex", "voyeurism", "walkway", "waltz", "wave", "wavy", "waxy", "wellspring",
+    "wheezy", "whiskey", "whizzing", "whomever", "wimpy", "witchcraft", "wizard", "woozy",
+    "wristwatch", "wyvern", "xylophone", "yachtsman", "yippee", "yoked", "youthful", "yummy",
+    "zephyr", "zigzag", "zigzagging", "zilch", "zipper", "zodiac", "zombie"
+]
 
 
-#this function is a helper function and returns a random word from the wordlist
+# this function is a helper function and returns a random word from the wordlist
 def get_random_word():
     # randint returns a pseudo random integer between the first param and the second param
     # in this case the first is 0 and the second is the length of out list -1 one.
