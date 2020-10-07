@@ -70,15 +70,15 @@ class Game:
         else:
             # because the guess is wrong we add it to the wrong guesses
             self.wrong_guesses += 1
-            if self.hasLost(guess):
+            if self.hasLost():
                 # change state to lost
                 self.state = GameState.LOST
                 return
 
     #checks whether the user has lost
-    def hasLost(self, guess):
+    def hasLost(self):
 
-        #if the user has more wrong guesses than we have graphics for the hangman he has lost
+        # if the user has more wrong guesses than we have graphics for the hangman he has lost
         if self.wrong_guesses >= len(STATES):
             return True
 
