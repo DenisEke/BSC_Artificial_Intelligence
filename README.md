@@ -7,6 +7,9 @@ Computational Thinking:
 First course in which we had to code. It was required to comment everthing thats why there are so many comments. 
 The most interesting code can be found in the hangman game.
 
+Intelligent Systems:
+The only code I produced here is in the Notebook tasks.
+
 Intro to python:
 This is a course in the second period. I am not yet allowed to publish my code from this course. 
 But here you can see what coding style I strive for. If you are interested in it I can send you a zip of workspace.
