@@ -1,6 +1,6 @@
 Hey, in this repo I am collecting all the code I produce along my Bachelor in Artificial Intelligence
 
-##Courses
+## Courses
 Every directory in this folder is about 1 course. Here you can see my thoughts and comments about courses:
 
 Computational Thinking: 
